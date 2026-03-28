@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naari - Elegant Fashion</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="floating-bg">
+  <span style="left: 10%; animation-delay: 0s;"></span>
+  <span style="left: 30%; animation-delay: 0s;"></span>
+  <span style="left: 50%; animation-delay: 0s;"></span>
+  <span style="left: 70%; animation-delay: 0s;"></span>
+  <span style="left: 90%; animation-delay: 0s;"></span>
+</div>
+
+<div class="offer-banner">
+  <p>🔥 20% OFF on all orders! | Free Shipping above ₹999 | 🎉 Festive Sale Live Now! 🎉</p>
+</div>
+
+
+<div class="logo-container">
+    <img src="images/narii1-removebg-preview.png" alt="Naari Logo">
+</div>
+
+<!-- Hamburger Menu and Navigation -->
+<input type="checkbox" id="menu-toggle" />
+<label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+<nav class="nav-bar">
+    <ul>
+        <li><a href="index_d.html">Home</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</nav>
+
+
+<div class="hero-container">
+<video autoplay muted loop playsinline>
+    <source src="images/janci.mp4" type="video/mp4" />
+</video>
+<div class="hero-overlay">
+    <h1>Welcome to Naari</h1>
+    <p>Unleash your elegance. Embrace your essence.</p>
+</div>
+</div>
+
+<main>
+<section id="home" class="page active">
+    <h2>Welcome to Naari</h2>
+    <p style="margin-bottom: 20px;">Naari is where strength meets style. Discover elegant ethnic and fusion wear
+    designed to empower every woman.</p>
+</section>
+
+<div class="carousel-wrapper">
+  <!--button onclick="scrollLeft()">←</button-->
+  <div class="carousel" id="carousel">
+    <img src="images/pic1.png" alt="Slide 1" />
+    <img src="images/pic2.png" alt="Slide 2" />
+    <img src="images/pic3.png" alt="Slide 3" />
+    <img src="images/pic4.png" alt="Slide 4" />
+    <img src="images/pic1.jpg" alt="Slide 5" />
+  </div>
+  <!--button onclick="scrollRight()">→</button-->
+</div>
+
+<script>
+const carousel = document.getElementById("carousel");
+
+function scrollRight() {
+  carousel.scrollBy({ left: carousel.clientWidth, behavior: "smooth" });
+}
+
+function scrollLeft() {
+  carousel.scrollBy({ left: -carousel.clientWidth, behavior: "smooth" });
+}
+</script>
+
+<div class="explore-btn-container">
+  <a href="product.html" class="explore-btn">Explore More</a>
+</div>
+</body>

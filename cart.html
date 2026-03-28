@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart – Naari</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div class="cart-container" id="cart-items"></div>
+  <div class="back-to-products">
+  <a href="product.html"> 
+  <button>🛍️ Continue Shopping</button>
+  </a>
+</div>
+
+<div class="explore-btn-container">
+  <a href="index_d.html" class="explore-btn">Back to home Page</a>
+</div>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("naariCart")) || [];
+  function renderCart() {
+  const container = document.getElementById("cart-items");
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+      container.innerHTML = '<p class="empty-message">Your cart is empty.</p>';
+      return;
+    }
+
+ let total = 0;
+
+cart.forEach(item => {
+  total += item.price * item.quantity;
+
+  const div = document.createElement("div");
+  div.className = "cart-item";
+  div.innerHTML = `
+  <img src="${item.image}" alt="${item.name}" style="width:100px; border-radius:12px;" />
+  <div>
+  <h3>${item.name}</h3>
+  <p>₹${item.price} × ${item.quantity}</p>
+  </div>
+  <button onclick="removeFromCart(${item.id})">Remove</button>
+  `;
+  container.appendChild(div);
+  });
+
+  const totalDiv = document.createElement("div");
+  totalDiv.className = "total";
+  totalDiv.textContent = `Total: ₹${total}`;
+  container.appendChild(totalDiv);
+  }
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  localStorage.setItem("naariCart", JSON.stringify(cart));
+  renderCart();
+}
+
+document.addEventListener("DOMContentLoaded", renderCart);
+</script>
+</body>
+</html>
